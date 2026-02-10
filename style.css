@@ -33,14 +33,6 @@ body {
     box-shadow: 0 2px 20px rgba(0, 31, 96, 0.05);
 }
 
-.logo-img {
-    height: 70px; /* Tamaño del logo */
-    width: 70px;
-    object-fit: cover;
-    border-radius: 50%; /* ESTO HACE QUE EL LOGO SEA UN CÍRCULO PERFECTO */
-    border: 2px solid var(--navy-blue); /* Borde azul fino alrededor */
-}
-
 .nav-links {
     list-style: none;
     display: flex;
@@ -323,3 +315,39 @@ body {
 }
 
 /* ... (Mantén el resto del CSS del footer, etc.) ... */
+/* Estilo del LOGO en TEXTO */
+.logo-text {
+    font-family: 'Outfit', sans-serif; /* La misma fuente moderna que usamos */
+    font-weight: 800; /* Extra gordita */
+    font-size: 1.5rem; /* Tamaño grande pero legible en móvil */
+    color: var(--navy-blue); /* El azul marino de tu marca */
+    text-decoration: none; /* Quitar el subrayado del enlace */
+    text-transform: uppercase; /* Todo en mayúsculas */
+    letter-spacing: 1px; /* Separar un poco las letras */
+    display: flex;
+    flex-direction: column; /* Pone GEMZZ debajo o al lado según prefieras */
+    line-height: 1;
+    text-align: center; /* Centrado si va en dos líneas */
+}
+
+/* Ajuste específico para la parte de "GEMZZ" */
+.logo-accent {
+    font-size: 0.8rem; /* Un poco más pequeño como en el logo original */
+    font-weight: 600;
+    color: var(--bright-blue); /* Azul un pelín más claro o el mismo navy-blue si prefieres */
+    letter-spacing: 3px; /* Letras más separadas estilo "aesthetic" */
+}
+
+/* Para que en ordenador se vea en una sola línea (opcional) */
+@media (min-width: 768px) {
+    .logo-text {
+        flex-direction: row;
+        align-items: baseline;
+        gap: 5px;
+    }
+    
+    .logo-accent {
+        font-size: 1.5rem; /* En PC lo ponemos del mismo tamaño */
+        letter-spacing: 1px;
+    }
+}
