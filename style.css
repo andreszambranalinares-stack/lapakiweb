@@ -1,0 +1,325 @@
+:root {
+    /* COLORES BASADOS EN EL LOGO */
+    --navy-blue: #001F60;   /* Azul Marino Profundo (ajustado al logo) */
+    --bright-blue: #2940D3; /* Azul un poco más brillante para interacciones */
+    --white: #ffffff;
+    --light-gray: #f8f9fa;
+    --text-dark: #1a1a1a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--white);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* --- NAVEGACIÓN --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: rgba(255, 255, 255, 0.95);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 20px rgba(0, 31, 96, 0.05);
+}
+
+.logo-img {
+    height: 70px; /* Tamaño del logo */
+    width: 70px;
+    object-fit: cover;
+    border-radius: 50%; /* ESTO HACE QUE EL LOGO SEA UN CÍRCULO PERFECTO */
+    border: 2px solid var(--navy-blue); /* Borde azul fino alrededor */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--navy-blue);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--bright-blue);
+}
+
+.btn-nav {
+    padding: 10px 25px;
+    background-color: var(--navy-blue);
+    color: white !important;
+    border-radius: 50px;
+    transition: transform 0.3s ease;
+}
+
+.btn-nav:hover {
+    background-color: var(--bright-blue);
+    transform: translateY(-2px);
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    background: radial-gradient(circle at 50% 50%, #ffffff 0%, #f0f4ff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-text h4 {
+    color: var(--bright-blue);
+    letter-spacing: 3px;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.hero-text h1 {
+    font-size: 4.5rem;
+    line-height: 1.1;
+    color: var(--navy-blue);
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+/* Efecto de texto hueco (Outline) moderno */
+.outline-text {
+    -webkit-text-stroke: 2px var(--navy-blue);
+    color: transparent;
+}
+
+.hero-text p {
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+.btn-primary {
+    padding: 15px 40px;
+    background: var(--navy-blue);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    margin-right: 15px;
+    transition: 0.3s;
+}
+
+.btn-secondary {
+    padding: 15px 40px;
+    border: 2px solid var(--navy-blue);
+    color: var(--navy-blue);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-primary:hover { background: var(--bright-blue); }
+.btn-secondary:hover { background: var(--navy-blue); color: white; }
+
+/* --- GALERÍA --- */
+.section {
+    padding: 80px 5%;
+}
+
+.header-section {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.header-section h2 {
+    color: var(--navy-blue);
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+.divider {
+    width: 80px;
+    height: 4px;
+    background: var(--bright-blue);
+    margin: 10px auto;
+    border-radius: 2px;
+}
+
+.grid-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: white;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card-image {
+    height: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.card:hover img {
+    transform: scale(1.1);
+}
+
+.card h3 {
+    color: var(--navy-blue);
+    font-size: 1.2rem;
+}
+
+/* --- FOOTER --- */
+.footer {
+    background: var(--navy-blue);
+    color: white;
+    padding: 50px 20px 20px;
+    text-align: center;
+}
+
+.footer h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.socials {
+    margin: 20px 0;
+}
+
+.socials a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    border: 1px solid white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.socials a:hover {
+    background: white;
+    color: var(--navy-blue);
+}
+
+.copyright {
+    margin-top: 40px;
+    font-size: 0.8rem;
+    opacity: 0.7;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.8rem; }
+    .nav-links { display: none; } /* Aquí podrías añadir un menú hamburguesa JS */
+}
+/* ... (Mantén todo el CSS anterior de colores, navbar y hero) ... */
+
+/* --- NUEVA SECCIÓN: SOBRE MÍ --- */
+.about-section {
+    position: relative;
+    height: 80vh; /* Altura de la sección */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    color: var(--white);
+}
+
+/* La imagen de fondo que se difuminará */
+.about-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* IMPORTANTE: Nombra tu foto como 'yo.png' y ponla en la carpeta */
+    background: url('pakichula.PNG') no-repeat center center/cover;
+    z-index: -1; /* Para que quede detrás del texto */
+    transition: filter 0.1s ease, opacity 0.1s ease; /* Transición suave */
+}
+
+/* Capa oscura para que el texto se lea mejor */
+.about-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 31, 96, 0.4); /* Tinte azul marino semitransparente */
+    z-index: -1;
+}
+
+.about-content {
+    z-index: 1; /* El texto queda por encima */
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.about-title {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.about-subtitle {
+    font-size: 1.8rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.about-hashtag {
+    font-size: 1.5rem;
+    color: var(--bright-blue); /* Usamos el azul brillante para destacar */
+    font-weight: 600;
+}
+
+/* --- GALERÍA (Ajuste para más columnas en pantallas grandes) --- */
+.grid-gallery {
+    /* Ahora se adapta mejor a más imágenes */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+/* ... (Mantén el resto del CSS del footer, etc.) ... */
