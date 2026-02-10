@@ -339,16 +339,91 @@ body {
 }
 
 /* Para que en ordenador se vea en una sola línea (opcional) */
-@media (min-width: 768px) {
-    .logo-text {
-        flex-direction: row;
-        align-items: baseline;
-        gap: 5px;
-    }
+/* --- RESPONSIVE / MÓVIL --- */
+@media screen and (max-width: 768px) {
     
-    .logo-accent {
-        font-size: 1.5rem; /* En PC lo ponemos del mismo tamaño */
-        letter-spacing: 1px;
+    /* Evitar scroll horizontal */
+    body {
+        overflow-x: hidden;
+    }
+
+    /* Ajuste del Logo en móvil */
+    .logo-text {
+        font-size: 1.2rem;
+    }
+
+    /* Estilo del Menú Deslizante */
+    .nav-links {
+        position: fixed; /* Fijo para que cubra la pantalla */
+        right: 0;
+        top: 0;
+        height: 100vh; /* Altura completa */
+        background-color: var(--navy-blue); /* Fondo Azul de la marca */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; /* Centrar todo verticalmente */
+        width: 70%; /* Ocupa el 70% de la pantalla */
+        transform: translateX(100%); /* Oculto a la derecha */
+        transition: transform 0.5s ease-in-out;
+        z-index: 998; /* Por debajo del botón hamburguesa */
+        box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    }
+
+    /* Clase para mostrar el menú (se activa con JS) */
+    .nav-links.nav-active {
+        transform: translateX(0%);
+    }
+
+    /* Estilo de los enlaces dentro del menú móvil */
+    .nav-links li {
+        margin: 20px 0;
+        opacity: 0; /* Ocultos al principio para la animación */
+    }
+
+    .nav-links a {
+        color: white; /* Texto blanco sobre fondo azul */
+        font-size: 1.2rem;
+    }
+
+    /* Botón Reservar destacado en móvil */
+    .btn-nav {
+        background-color: white;
+        color: var(--navy-blue) !important;
+        padding: 15px 30px;
+        font-size: 1.1rem;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    /* --- BOTÓN HAMBURGUESA --- */
+    .burger {
+        display: block; /* Hacemos que sea visible */
+        cursor: pointer;
+        z-index: 999; /* Por encima del menú para poder cerrarlo */
+    }
+
+    .burger div {
+        width: 25px;
+        height: 3px;
+        background-color: var(--navy-blue);
+        margin: 5px;
+        transition: all 0.3s ease;
+        border-radius: 2px;
+    }
+
+    /* Animación: Convertir hamburguesa en X */
+    .toggle .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+        background-color: white; /* Cambia a blanco cuando el menú está azul */
+    }
+
+    .toggle .line2 {
+        opacity: 0;
+    }
+
+    .toggle .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+        background-color: white;
     }
 }
 /* --- LIGHTBOX (VISOR DE IMÁGENES) --- */
@@ -415,4 +490,14 @@ body {
 /* Aseguramos que el cursor cambie en las fotos de la galería */
 .card-image img {
     cursor: zoom-in;
+}
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
