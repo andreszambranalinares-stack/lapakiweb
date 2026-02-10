@@ -351,3 +351,68 @@ body {
         letter-spacing: 1px;
     }
 }
+/* --- LIGHTBOX (VISOR DE IMÁGENES) --- */
+
+/* El fondo oscuro que cubre toda la pantalla */
+.lightbox {
+    position: fixed;
+    z-index: 1000; /* Por encima de todo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo negro muy oscuro */
+    backdrop-filter: blur(5px); /* Difumina el fondo de atrás */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Estado inicial: Oculto y transparente */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Clase que añadiremos con JS para mostrarlo */
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* La imagen dentro del visor */
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    
+    /* Animación de zoom */
+    transform: scale(0.8);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efecto rebote suave */
+}
+
+/* Cuando está activo, la imagen crece a su tamaño normal */
+.lightbox.active .lightbox-content {
+    transform: scale(1);
+}
+
+/* Botón de cerrar (X) */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: var(--bright-blue); /* Tu color de acento */
+}
+
+/* Aseguramos que el cursor cambie en las fotos de la galería */
+.card-image img {
+    cursor: zoom-in;
+}
