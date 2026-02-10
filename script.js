@@ -99,3 +99,30 @@ const navSlide = () => {
 
 // Ejecutar la función
 navSlide();
+// --- EFECTO DE DIFUMINADO AL HACER SCROLL (SECCIÓN SOBRE MÍ) ---
+window.addEventListener('scroll', function() {
+    const aboutSection = document.querySelector('.about-section');
+    const bgImage = document.querySelector('.about-bg-image');
+    
+    if (aboutSection && bgImage) {
+        const sectionTop = aboutSection.offsetTop;
+        const sectionHeight = aboutSection.offsetHeight;
+        const scrollPosition = window.scrollY + window.innerHeight;
+
+        // Calculamos cuánto hemos bajado por la sección
+        let progress = (scrollPosition - sectionTop) / sectionHeight;
+        progress = Math.max(0, Math.min(1, progress));
+
+        // Aplicamos el efecto solo si la sección es visible
+        if (progress > 0 && scrollPosition < sectionTop + sectionHeight + window.innerHeight) {
+            const blurValue = progress * 20; // Intensidad del desenfoque
+            const opacityValue = 1 - (progress * 0.5); // Se oscurece un poco
+            
+            bgImage.style.filter = `blur(${blurValue}px)`;
+            bgImage.style.opacity = opacityValue;
+        } else {
+            bgImage.style.filter = 'blur(0px)';
+            bgImage.style.opacity = 1;
+        }
+    }
+});
